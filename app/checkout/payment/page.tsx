@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useMemo, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "@/components/cart-context";
 import { products } from "@/data/products";
@@ -23,7 +23,7 @@ type CardFormData = {
   country: string;
 };
 
-export default function PaymentLandingPage() {
+function PaymentLandingPageContent() {
   const params = useSearchParams();
   const methodParam = params.get("method");
   const paymentMethod: PaymentMethod = methodParam === "paypal" ? "paypal" : "card";
@@ -397,5 +397,13 @@ export default function PaymentLandingPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function PaymentLandingPage() {
+  return (
+    <Suspense>
+      <PaymentLandingPageContent />
+    </Suspense>
   );
 }
