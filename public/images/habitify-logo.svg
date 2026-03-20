@@ -1,0 +1,7 @@
+<svg width="260" height="64" viewBox="0 0 260 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="260" height="64" rx="8" fill="white"/>
+  <path d="M18 15h11v34H18V15Z" fill="#3B82F6"/>
+  <path d="M29 31c0-7 5.3-12 12-12v11c-1.2 0-2.2.9-2.2 2.1V49H29V31Z" fill="#2563EB"/>
+  <circle cx="18" cy="49" r="5" fill="#2563EB"/>
+  <text x="64" y="43" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700" fill="#111827">Habitify</text>
+</svg>

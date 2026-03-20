@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "usr_m7sfvmpy_1773990663615",
+      "name": "Mylene Zorilla",
+      "email": "mylene.zorilla7155@myunfc.com",
+      "passwordHash": "$2b$12$xepNw8DEUDaMkGhl4JPAP.pODss8s3gfQ.YMKLQ/18YMoAZvvOQdq",
+      "createdAt": "2026-03-20T07:11:03.066Z",
+      "updatedAt": "2026-03-20T07:11:03.066Z"
+    },
+    {
+      "id": "usr_yxx48lxf_1773990310200",
+      "name": "Mylene Zorilla",
+      "email": "mylene.zorilla7155@myunfc.ca",
+      "passwordHash": "$2b$12$6iaOBi2jYGgVQMghWEB7YucYbTn2yq8rIdpoi4DqBZFEZ9XSFWqgS",
+      "createdAt": "2026-03-20T07:05:09.320Z",
+      "updatedAt": "2026-03-20T07:05:09.320Z"
+    }
+  ]
+}

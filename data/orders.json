@@ -1,0 +1,28 @@
+{
+  "orders": [
+    {
+      "id": "ord_demo_001",
+      "stripeSessionId": "cs_test_demo_001",
+      "stripePaymentIntentId": "pi_demo_001",
+      "amountTotal": 29900,
+      "currency": "usd",
+      "customerEmail": "alex.rivera@example.com",
+      "productId": "dht-pro-annual",
+      "status": "paid",
+      "createdAt": "2026-03-03T10:15:00.000Z",
+      "updatedAt": "2026-03-03T10:17:00.000Z"
+    },
+    {
+      "id": "ord_demo_002",
+      "stripeSessionId": "cs_test_demo_002",
+      "stripePaymentIntentId": "pi_demo_002",
+      "amountTotal": 7900,
+      "currency": "usd",
+      "customerEmail": "jamie.lee@example.com",
+      "productId": "dht-team-monthly",
+      "status": "paid",
+      "createdAt": "2026-03-04T14:05:00.000Z",
+      "updatedAt": "2026-03-04T14:06:00.000Z"
+    }
+  ]
+}
