@@ -11,6 +11,13 @@ export default function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [billingAddress, setBillingAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [country, setCountry] = useState("");
+  const [phone, setPhone] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -24,7 +31,18 @@ export default function SignUpPage() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ name, email, password })
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        address,
+        billingAddress,
+        city,
+        province,
+        postalCode,
+        country,
+        phone
+      })
     });
 
     const signupPayload = (await signupResponse.json()) as { error?: string };
@@ -70,6 +88,104 @@ export default function SignUpPage() {
             placeholder="Your full name"
             value={name}
             onChange={(event) => setName(event.target.value)}
+            required
+            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          />
+        </div>
+        <div className="space-y-1">
+          <label htmlFor="address" className="block text-sm font-medium text-slate-700">Address</label>
+          <input
+            id="address"
+            name="address"
+            type="text"
+            autoComplete="street-address"
+            placeholder="Your address"
+            value={address}
+            onChange={(event) => setAddress(event.target.value)}
+            required
+            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          />
+        </div>
+        <div className="space-y-1">
+          <label htmlFor="billingAddress" className="block text-sm font-medium text-slate-700">Billing Address</label>
+          <input
+            id="billingAddress"
+            name="billingAddress"
+            type="text"
+            autoComplete="street-address"
+            placeholder="Your billing address"
+            value={billingAddress}
+            onChange={(event) => setBillingAddress(event.target.value)}
+            required
+            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          />
+        </div>
+        <div className="space-y-1">
+          <label htmlFor="city" className="block text-sm font-medium text-slate-700">City</label>
+          <input
+            id="city"
+            name="city"
+            type="text"
+            autoComplete="address-level2"
+            placeholder="Your city"
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
+            required
+            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          />
+        </div>
+        <div className="space-y-1">
+          <label htmlFor="province" className="block text-sm font-medium text-slate-700">Province / State</label>
+          <input
+            id="province"
+            name="province"
+            type="text"
+            autoComplete="address-level1"
+            placeholder="Your province or state"
+            value={province}
+            onChange={(event) => setProvince(event.target.value)}
+            required
+            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          />
+        </div>
+        <div className="space-y-1">
+          <label htmlFor="postalCode" className="block text-sm font-medium text-slate-700">Postal Code</label>
+          <input
+            id="postalCode"
+            name="postalCode"
+            type="text"
+            autoComplete="postal-code"
+            placeholder="Your postal code"
+            value={postalCode}
+            onChange={(event) => setPostalCode(event.target.value)}
+            required
+            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          />
+        </div>
+        <div className="space-y-1">
+          <label htmlFor="country" className="block text-sm font-medium text-slate-700">Country</label>
+          <input
+            id="country"
+            name="country"
+            type="text"
+            autoComplete="country"
+            placeholder="Your country"
+            value={country}
+            onChange={(event) => setCountry(event.target.value)}
+            required
+            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          />
+        </div>
+        <div className="space-y-1">
+          <label htmlFor="phone" className="block text-sm font-medium text-slate-700">Phone Number</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            placeholder="Your phone number"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
             required
             className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
           />

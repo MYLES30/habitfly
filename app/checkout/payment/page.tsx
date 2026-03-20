@@ -67,11 +67,54 @@ export default function PaymentLandingPage() {
   );
 
   const checkoutSubtotal = useMemo(() => cartRows.reduce((sum, row) => sum + row.total, 0), [cartRows]);
-  const hstRate = 0.13;
-  const hstAmount = useMemo(() => checkoutSubtotal * hstRate, [checkoutSubtotal]);
-  const checkoutTotal = useMemo(() => checkoutSubtotal + hstAmount, [checkoutSubtotal, hstAmount]);
+  // Province tax rates
+  const provinceTaxRates: Record<string, { label: string; rate: number }> = {
+    "ON": { label: "HST (13%)", rate: 0.13 },
+    "BC": { label: "GST (5%) + PST (7%)", rate: 0.12 },
+    "AB": { label: "GST (5%)", rate: 0.05 },
+    "MB": { label: "GST (5%) + PST (7%)", rate: 0.12 },
+    "NB": { label: "HST (15%)", rate: 0.15 },
+    "NL": { label: "HST (15%)", rate: 0.15 },
+    "NS": { label: "HST (15%)", rate: 0.15 },
+    "PE": { label: "HST (15%)", rate: 0.15 },
+    "QC": { label: "GST (5%) + QST (9.975%)", rate: 0.14975 },
+    "SK": { label: "GST (5%) + PST (6%)", rate: 0.11 },
+    "NT": { label: "GST (5%)", rate: 0.05 },
+    "NU": { label: "GST (5%)", rate: 0.05 },
+    "YT": { label: "GST (5%)", rate: 0.05 }
+  };
+
+  // Helper to normalize province input
+  function getProvinceCode(input: string) {
+    const normalized = input.trim().toUpperCase();
+    // Accept full names or abbreviations
+    const map: Record<string, string> = {
+      "ONTARIO": "ON",
+      "QUEBEC": "QC",
+      "BRITISH COLUMBIA": "BC",
+      "ALBERTA": "AB",
+      "MANITOBA": "MB",
+      "NEW BRUNSWICK": "NB",
+      "NEWFOUNDLAND": "NL",
+      "NEWFOUNDLAND AND LABRADOR": "NL",
+      "NOVA SCOTIA": "NS",
+      "PRINCE EDWARD ISLAND": "PE",
+      "SASKATCHEWAN": "SK",
+      "NORTHWEST TERRITORIES": "NT",
+      "NUNAVUT": "NU",
+      "YUKON": "YT"
+    };
+    if (provinceTaxRates[normalized]) return normalized;
+    if (map[normalized]) return map[normalized];
+    return "ON"; // Default to Ontario
+  }
+
+  const provinceCode = useMemo(() => getProvinceCode(cardForm.state), [cardForm.state]);
+  const taxInfo = provinceTaxRates[provinceCode] || provinceTaxRates["ON"];
+  const taxAmount = useMemo(() => checkoutSubtotal * taxInfo.rate, [checkoutSubtotal, taxInfo]);
+  const checkoutTotal = useMemo(() => checkoutSubtotal + taxAmount, [checkoutSubtotal, taxAmount]);
   const formattedSubtotal = useMemo(() => `$${checkoutSubtotal.toFixed(2)}`, [checkoutSubtotal]);
-  const formattedHST = useMemo(() => `$${hstAmount.toFixed(2)}`, [hstAmount]);
+  const formattedTax = useMemo(() => `$${taxAmount.toFixed(2)}`, [taxAmount]);
   const formattedTotal = useMemo(() => `$${checkoutTotal.toFixed(2)}`, [checkoutTotal]);
 
   const isCardFormComplete = useMemo(() => {
@@ -190,14 +233,14 @@ export default function PaymentLandingPage() {
           <span className="text-xl font-bold text-slate-900">{formattedSubtotal}</span>
         </div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-lg font-semibold text-slate-700">HST (13%)</span>
-          <span className="text-xl font-bold text-slate-900">{formattedHST}</span>
+          <span className="text-lg font-semibold text-slate-700">{taxInfo.label}</span>
+          <span className="text-xl font-bold text-slate-900">{formattedTax}</span>
         </div>
         <div className="flex items-center justify-between mt-2">
           <span className="text-2xl font-black text-slate-900">Total</span>
           <span className="text-3xl font-extrabold text-blue-700">{formattedTotal}</span>
         </div>
-        <p className="text-xs text-slate-500 mt-2">Tax calculated for Niagara Falls, Ontario, Canada (HST 13%).</p>
+        <p className="text-xs text-slate-500 mt-2">Tax calculated based on your province selection ({taxInfo.label}).</p>
       </div>
 
       <section className="rounded-xl border border-slate-200 bg-slate-50 p-4">

@@ -241,7 +241,7 @@ export default function CheckoutPage() {
               <span className="text-2xl font-black text-slate-900">Total</span>
               <span className="text-4xl font-extrabold text-blue-700">{formattedTotal}</span>
             </div>
-            <p className="text-sm text-slate-500 mt-2">Tax calculated for Niagara Falls, Ontario, Canada (HST 13%).</p>
+            <p className="text-sm text-slate-500 mt-2">Tax calculated based on your province selection (HST 13%).</p>
           </div>
 
           <div>
