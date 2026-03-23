@@ -29,6 +29,11 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
+          {/* Mobile nav links */}
+          <nav className="flex md:hidden items-center gap-3 text-sm font-semibold text-slate-700">
+            <Link href="/product" className="hover:text-blue-700 transition">Product</Link>
+            <Link href="/pricing" className="hover:text-blue-700 transition">Pricing</Link>
+          </nav>
         </div>
         <div className="flex items-center gap-4">
           <span className="hidden md:inline-block text-xs font-semibold text-slate-600">Logged in as {username}</span>

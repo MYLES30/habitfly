@@ -9,18 +9,14 @@ export default function HomePage() {
       <section className="relative overflow-hidden rounded-3xl border border-slate-200 shadow-xl mt-8">
         <Image src="/images/hero-real.jpg" alt="Productive workspace for habit building" width={1920} height={1200} className="h-56 sm:h-80 md:h-[700px] w-full object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/10" />
-        <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-20">
-          <div className="flex flex-row justify-between items-start w-full">
-            <h1 className="text-left text-6xl md:text-8xl font-black uppercase leading-tight text-white drop-shadow-lg tracking-tight">MASTER YOUR HABITS</h1>
-            <div className="absolute bottom-12 right-12 flex flex-col items-end text-right text-white space-y-6">
-              <p className="text-4xl md:text-5xl font-bold drop-shadow">Start 7-Day Free Trial.</p>
-              <p className="text-3xl md:text-4xl font-semibold drop-shadow">Download Now!</p>
-              <Link href="/checkout?trial=7day" className="mt-8 inline-block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-800 px-8 py-4 text-2xl font-bold uppercase text-white ring-2 ring-white/40 hover:bg-blue-700 transition">Get Started</Link>
-            </div>
-          </div>
-          <div className="flex items-center gap-4 mt-8">
-            <img src="/images/social-proof-real.jpg" alt="Trust badge" className="h-12 w-12 rounded-full border-2 border-white shadow-md" />
-            <span className="text-lg font-semibold text-white">Trusted by 10,000+ users</span>
+        <div className="absolute inset-0 flex flex-col justify-center items-center p-4 md:p-20">
+          <h1 className="text-center text-4xl sm:text-6xl md:text-8xl font-black uppercase leading-tight text-white drop-shadow-lg tracking-tight">MASTER YOUR HABITS</h1>
+          <p className="text-2xl sm:text-4xl md:text-5xl font-bold drop-shadow mt-4 text-white">Start 7-Day Free Trial.</p>
+          <p className="text-xl sm:text-3xl md:text-4xl font-semibold drop-shadow mt-2 text-white">Download Now!</p>
+          <Link href="/checkout?trial=7day" className="mt-6 inline-block rounded-lg bg-gradient-to-r from-blue-600 to-indigo-800 px-6 py-3 sm:px-8 sm:py-4 text-lg sm:text-2xl font-bold uppercase text-white ring-2 ring-white/40 hover:bg-blue-700 transition">Get Started</Link>
+          <div className="flex items-center gap-4 mt-6">
+            <img src="/images/social-proof-real.jpg" alt="Trust badge" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-2 border-white shadow-md" />
+            <span className="text-base sm:text-lg font-semibold text-white">Trusted by 10,000+ users</span>
           </div>
         </div>
       </section>
