@@ -7,7 +7,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-3xl border border-slate-200 shadow-xl mt-8">
-        <Image src="/images/hero-real.jpg" alt="Productive workspace for habit building" width={1920} height={1200} className="h-[700px] w-full object-cover" priority />
+        <Image src="/images/hero-real.jpg" alt="Productive workspace for habit building" width={1920} height={1200} className="h-56 sm:h-80 md:h-[700px] w-full object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/10" />
         <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-20">
           <div className="flex flex-row justify-between items-start w-full">
